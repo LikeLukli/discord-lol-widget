@@ -1,0 +1,44 @@
+# Copy this file to config.yaml and fill in your account details.
+
+riot:
+  platform: euw1              # euw1, na1, eun1, kr, ...
+  region: europe              # europe, americas, asia
+
+  puuid: null                 # optional: set directly instead of game_name/tag_line
+
+  game_name: YourName
+  tag_line: TAG
+
+  ranked_queue: RANKED_SOLO_5x5
+  matches_for_kda: 20
+
+discord:
+  title_suffix: "'s Stats"
+
+behavior:
+  # "on_new_match": cheaply poll the match history (1 API request) and only do a
+  #                 full update when a new match shows up.
+  # "interval":     do a full update every update_interval_seconds.
+  update_mode: on_new_match
+
+  check_interval_seconds: 120    # on_new_match: how often to look for a new match
+  max_staleness_seconds: 3600    # on_new_match: also refresh after this long without a match (0 = never)
+
+  update_interval_seconds: 600   # interval mode: full update cadence
+
+discord_field_names:
+  title: title
+  rank: rank
+  rank_icon: rank-icon
+  lp: lp
+  winrate_ranked: winrate-ranked
+  account_level: account-level
+  main_role: main-role
+  main_role_icon: main-role-icon
+  avg_kda: avg-kda
+  profile_icon: profile-icon
+
+icon_urls:
+  rank_base: "https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests"
+  role_base: "https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions"
+  profile_icon_base: "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons"

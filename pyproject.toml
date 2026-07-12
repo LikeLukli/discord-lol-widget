@@ -1,0 +1,10 @@
+[project]
+name = "discord-lol-widget"
+version = "0.1.0"
+description = "Updates the experimental Discord profile widget with League of Legends stats"
+requires-python = ">=3.14"
+dependencies = [
+    "dotenv>=0.9.9",
+    "pyyaml>=6.0.3",
+    "requests>=2.34.2",
+]
