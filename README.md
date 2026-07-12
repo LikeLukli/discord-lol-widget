@@ -21,7 +21,34 @@ You need:
 - a Riot API key from https://developer.riotgames.com (note: dev keys expire
   after 24h, you'd need a personal/production key for anything long-running)
 - a Discord application with the profile widget experiment set up, and its
-  bot token
+  bot token.
+
+To get the Discord application, you can follow the [tutorial by Chloe Cinders](https://chloecinders.com/blog/discord-widgets)
+and set up the widget as follows:
+- Widget Top:
+    - Select `Hero` or `Contained` in the Design tab based on personal prefference.
+    - In the Content tab, select User Data for both Image and Title.
+    - Name the Image field `profile-icon` and the Title field `title`
+    - You can add Subtitles with custom strings to your liking.s
+- Widget Bottom:
+    - Select `Stats Grid` in the Design tab.
+    - In the Content section, select User Data for each stat's value.
+    - Name the value variables as follows:
+        - `winrate-ranked`
+        - `rank`
+        - `lp`
+        - `account-level`
+        - `main-role`
+        - `avg-kda`
+    - Theoretically, you could name them differently, though you would then need to edit the config.
+    - More stats are in the making, which later will be added to the config.
+    - The Labels can be anything you like by choosing a custom string.
+    - For the `rank` and the `main-role` stats you would also need to add User Data for the Icon, naming them `rank-icon` and `main-role-icon` respectively.
+- Widget Preview:
+    - This can be configured to your liking, but it has to be configured in some way.
+- Mini-Profile:
+    - If you want to you can add one of the variables from the Widget Top to the Mini-Profile.
+    - This is optional and will show up in your Mini-Profile before you go to your whole Profile.
 
 Then:
 
@@ -36,6 +63,16 @@ uv run main.py
 
 Both real files (`.env`, `config.yaml`) are gitignored.
 
+This is what it could look like after the setup:
+
+Mini Profile:
+
+![Discord widget mini profile](img/widget_preview_mini_profile.png)
+
+Normal Widget:
+
+![Discord widget](img/widget_preview.png)
+
 ## Config notes
 
 - `riot.game_name` / `riot.tag_line` is your Riot ID (the `Name#TAG` thing).
@@ -49,3 +86,12 @@ Both real files (`.env`, `config.yaml`) are gitignored.
   up eventually. Set it to 0 to only ever update after matches.
 
 Icons are hotlinked from [CommunityDragon](https://www.communitydragon.org/).
+
+## Credits and Stuff
+
+All rights for the Riot Games API and Assets belong to Riot Games.
+All rights for the Discord API and Assets belong to Discord Inc.
+Everything else is my own, feel free to use it as you like and modify it as you
+see fit.
+Contributors are welcome, but I don't have any plans to make this a full-fledged
+project with a proper release cycle, so don't expect any guarantees or support.
