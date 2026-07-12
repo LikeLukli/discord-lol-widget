@@ -73,6 +73,8 @@ Normal Widget:
 
 ![Discord widget](img/widget_preview.png)
 
+Note: If you want it to constantly update, you'd need to run it either on a Server or on your machine whilst you play.
+
 ## Config notes
 
 - `riot.game_name` / `riot.tag_line` is your Riot ID (the `Name#TAG` thing).
