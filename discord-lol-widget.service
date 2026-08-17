@@ -1,0 +1,16 @@
+[Unit]
+Description=Discord League of Legends Widget
+After=network.target
+
+[Service]
+Type=simple
+# Adjust the User and WorkingDirectory to your setup
+User=pi
+WorkingDirectory=/home/pi/discord-lol-widget
+# We use 'uv run' to automatically handle the virtual environment
+ExecStart=/home/pi/.local/bin/uv run main.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

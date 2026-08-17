@@ -75,6 +75,30 @@ Normal Widget:
 
 Note: If you want it to constantly update, you'd need to run it either on a Server or on your machine whilst you play.
 
+## Running as a Service (Systemd)
+
+If you want to run this automatically on a server or a Raspberry Pi, you can use a systemd service. This is what I use to run the script automatically on my raspberry pi, adjust to your liking:
+
+1. Copy the provided `discord-lol-widget.service` to `/etc/systemd/system/`:
+   ```bash
+   sudo cp discord-lol-widget.service /etc/systemd/system/
+   ```
+2. Edit the service file to match your user and paths:
+   ```bash
+   sudo nano /etc/systemd/system/discord-lol-widget.service
+   ```
+3. Enable and start the service:
+   ```bash
+   sudo systemctl daemon-reload
+   sudo systemctl enable discord-lol-widget
+   sudo systemctl start discord-lol-widget
+   ```
+
+Check the logs with:
+```bash
+journalctl -u discord-lol-widget -f
+```
+
 ## Config notes
 
 - `riot.game_name` / `riot.tag_line` is your Riot ID (the `Name#TAG` thing).
