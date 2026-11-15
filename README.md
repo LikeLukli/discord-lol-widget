@@ -17,7 +17,7 @@ so this whole thing can stop working whenever Discord feels like it.
 
 You need:
 
-- Python 3.14+ and [uv](https://docs.astral.sh/uv/)
+- Python 3.14+ and [uv](https://docs.astral.sh/uv/) (or Docker / Docker Compose)
 - a Riot API key from https://developer.riotgames.com (note: dev keys expire
   after 24h, you'd need a personal/production key for anything long-running)
 - a Discord application with the profile widget experiment set up, and its
@@ -74,6 +74,51 @@ Normal Widget:
 ![Discord widget](img/widget_preview.png)
 
 Note: If you want it to constantly update, you'd need to run it either on a Server or on your machine whilst you play.
+
+## Running with Docker
+
+If you'd rather not install Python 3.14 and `uv` on your host or server, you can run the widget in a container with Docker Compose (recommended) or plain Docker.
+
+Make sure you create `.env` and `config.yaml` **before** starting the container (otherwise Docker will create an empty directory instead of mounting `config.yaml`):
+
+```bash
+git clone <this repo>
+cd discord-lol-widget
+cp .env.example .env                    # fill in your keys/ids
+cp config.example.yaml config.yaml      # fill in your riot id, region etc.
+```
+
+### Docker Compose
+
+Build and start in the background:
+
+```bash
+docker compose up -d --build
+```
+
+Useful commands:
+
+```bash
+docker compose logs -f       # follow logs
+docker compose restart       # apply changes to config.yaml
+docker compose up -d         # apply changes to .env
+docker compose down          # stop and remove the container
+```
+
+### Plain Docker
+
+If you prefer using the `docker` CLI directly:
+
+```bash
+docker build -t discord-lol-widget .
+docker run -d \
+  --name discord-lol-widget \
+  --restart unless-stopped \
+  --init \
+  --env-file .env \
+  -v "$(pwd)/config.yaml:/app/config.yaml:ro" \
+  discord-lol-widget
+```
 
 ## Running as a Service (Systemd)
 
