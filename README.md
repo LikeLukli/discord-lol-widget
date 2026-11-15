@@ -53,7 +53,7 @@ and set up the widget as follows:
 Then:
 
 ```
-git clone <this repo>
+git clone https://github.com/LikeLukli/discord-lol-widget.git
 cd discord-lol-widget
 uv sync
 cp .env.example .env                    # fill in your keys/ids
@@ -82,7 +82,7 @@ If you'd rather not install Python 3.14 and `uv` on your host or server, you can
 Make sure you create `.env` and `config.yaml` **before** starting the container (otherwise Docker will create an empty directory instead of mounting `config.yaml`):
 
 ```bash
-git clone <this repo>
+git clone https://github.com/LikeLukli/discord-lol-widget.git
 cd discord-lol-widget
 cp .env.example .env                    # fill in your keys/ids
 cp config.example.yaml config.yaml      # fill in your riot id, region etc.
