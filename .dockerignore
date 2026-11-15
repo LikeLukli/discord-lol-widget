@@ -1,0 +1,14 @@
+.git/
+.gitignore
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+*.yaml
+img/
+README.md
+LICENSE
+discord-lol-widget.service
+Dockerfile
+.dockerignore
